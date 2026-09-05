@@ -96,6 +96,65 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* === SECCIÓN SLIDESHOW DE SPONSORS === */
+        .sponsors-slideshow-section {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            padding: 30px 20px;
+            background: rgba(20, 24, 28, 0.5);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .sponsors-carousel-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .sponsors-slideshow-container {
+            position: relative;
+            height: 160px; /* Altura para imagen grande como en el inicio */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sponsor-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none; 
+        }
+
+        .sponsor-slide.active {
+            opacity: 1;
+            pointer-events: auto; 
+        }
+
+        .sponsor-slide img {
+            max-height: 140px; 
+            max-width: 90%;
+            object-fit: contain;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+            transition: transform 0.4s ease;
+        }
+
+        .sponsor-slide:hover img {
+            transform: scale(1.05);
+        }
+
         /* === TABS PRINCIPALES === */
         .tabs {
             display: flex; gap: 10px; margin-bottom: 25px; justify-content: center; flex-wrap: wrap;
@@ -419,7 +478,6 @@
             .modal-close { width: 40px; height: 40px; font-size: 1.4rem; } /* Más grande para tocar mejor */
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -499,17 +557,12 @@
                 </div>
                 
                 <div id="primera-posiciones" class="sub-content active-sub-content">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="descargarImagen('cap-primera-posiciones', 'Posiciones_Primera')">
-                            <i class="fa-solid fa-camera"></i> <span class="hide-mobile">Guardar Tabla</span>
-                        </button>
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="toggleCols('tabla-primera', this)">
+                    <div style="text-align: right;">
+                        <button class="toggle-cols-btn" onclick="toggleCols('tabla-primera', this)">
                             <i class="fa-solid fa-arrows-left-right"></i> <span>Ver GF/GC</span>
                         </button>
                     </div>
-                    <div class="table-responsive" id="cap-primera-posiciones" style="padding: 10px; border-radius: 10px;">
-                        <!-- Título oculto que se muestra solo en la foto -->
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:10px; text-transform:uppercase;">Posiciones Primera - Clausura</div>
+                    <div class="table-responsive">
                         <table id="tabla-primera">
                             <thead><tr><th>Pos</th><th>Equipo</th><th>PJ</th><th class="hide-mobile">GF</th><th class="hide-mobile">GC</th><th>DF</th><th>PTS</th></tr></thead>
                             <tbody id="tabla-primera-body"></tbody>
@@ -518,28 +571,12 @@
                 </div>
                 
                 <div id="primera-resultados" class="sub-content">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <div id="selector-fechas-primera" class="fechas-selector" style="margin:0; padding:0;"></div>
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0; margin-left:10px;" onclick="descargarImagen('cap-primera-resultados', 'Resultados_Primera')">
-                            <i class="fa-solid fa-camera"></i>
-                        </button>
-                    </div>
-                    <div id="cap-primera-resultados" style="padding: 10px; border-radius: 10px;">
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:15px; text-transform:uppercase;">Resultados Primera - Clausura</div>
-                        <div id="resultados-primera"></div>
-                    </div>
+                    <div id="selector-fechas-primera" class="fechas-selector"></div>
+                    <div id="resultados-primera"></div>
                 </div>
                 
                 <div id="primera-goles" class="sub-content">
-                    <div style="text-align: right; margin-bottom: 15px;">
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="descargarImagen('cap-primera-goles', 'Goleadores_Primera')">
-                            <i class="fa-solid fa-camera"></i> <span>Guardar Ranking</span>
-                        </button>
-                    </div>
-                    <div id="cap-primera-goles" style="padding: 10px; border-radius: 10px;">
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:15px; text-transform:uppercase;">Goleadores Primera - Clausura</div>
-                        <div id="goles-primera" class="goleadores-list"></div>
-                    </div>
+                     <div id="goles-primera" class="goleadores-list"></div>
                     <div style="text-align: center; margin-top: 15px;">
                         <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:8px;" onclick="toggleGoleadores('primera', this)">
                             Ver tabla completa <i class="fa-solid fa-chevron-down"></i>
@@ -548,15 +585,7 @@
                 </div>
                 
                 <div id="primera-valla" class="sub-content">
-                    <div style="text-align: right; margin-bottom: 15px;">
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="descargarImagen('cap-primera-valla', 'Valla_Invicta_Primera')">
-                            <i class="fa-solid fa-camera"></i> <span>Guardar Ranking</span>
-                        </button>
-                    </div>
-                    <div id="cap-primera-valla" style="padding: 10px; border-radius: 10px;">
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:15px; text-transform:uppercase;">Valla Invicta Primera - Clausura</div>
-                        <div id="valla-primera-list" class="goleadores-list"></div>
-                    </div>
+                    <div id="valla-primera-list" class="goleadores-list"></div>
                 </div>
             </div>
         </div>
@@ -570,16 +599,12 @@
                     <button class="sub-tab-btn" onclick="showSubTab('reserva', 'valla')">Valla Invicta</button>
                 </div>
                 <div id="reserva-posiciones" class="sub-content active-sub-content">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="descargarImagen('cap-reserva-posiciones', 'Posiciones_Reserva')">
-                            <i class="fa-solid fa-camera"></i> <span class="hide-mobile">Guardar Tabla</span>
-                        </button>
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="toggleCols('tabla-reserva', this)">
+                    <div style="text-align: right;">
+                        <button class="toggle-cols-btn" onclick="toggleCols('tabla-reserva', this)">
                             <i class="fa-solid fa-arrows-left-right"></i> <span>Ver GF/GC</span>
                         </button>
                     </div>
-                    <div class="table-responsive" id="cap-reserva-posiciones" style="padding: 10px; border-radius: 10px;">
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:10px; text-transform:uppercase;">Posiciones Reserva - Clausura</div>
+                    <div class="table-responsive">
                         <table id="tabla-reserva">
                             <thead><tr><th>Pos</th><th>Equipo</th><th>PJ</th><th class="hide-mobile">GF</th><th class="hide-mobile">GC</th><th>DF</th><th>PTS</th></tr></thead>
                             <tbody id="tabla-reserva-body"></tbody>
@@ -587,27 +612,11 @@
                     </div>
                 </div>
                 <div id="reserva-resultados" class="sub-content">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <div id="selector-fechas-reserva" class="fechas-selector" style="margin:0; padding:0;"></div>
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0; margin-left:10px;" onclick="descargarImagen('cap-reserva-resultados', 'Resultados_Reserva')">
-                            <i class="fa-solid fa-camera"></i>
-                        </button>
-                    </div>
-                    <div id="cap-reserva-resultados" style="padding: 10px; border-radius: 10px;">
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:15px; text-transform:uppercase;">Resultados Reserva - Clausura</div>
-                        <div id="resultados-reserva"></div>
-                    </div>
+                    <div id="selector-fechas-reserva" class="fechas-selector"></div>
+                    <div id="resultados-reserva"></div>
                 </div>
                 <div id="reserva-goles" class="sub-content">
-                    <div style="text-align: right; margin-bottom: 15px;">
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="descargarImagen('cap-reserva-goles', 'Goleadores_Reserva')">
-                            <i class="fa-solid fa-camera"></i> <span>Guardar Ranking</span>
-                        </button>
-                    </div>
-                    <div id="cap-reserva-goles" style="padding: 10px; border-radius: 10px;">
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:15px; text-transform:uppercase;">Goleadores Reserva - Clausura</div>
-                        <div id="goles-reserva" class="goleadores-list"></div>
-                    </div>
+                    <div id="goles-reserva" class="goleadores-list"></div>
                     <div style="text-align: center; margin-top: 15px;">
                         <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:8px;" onclick="toggleGoleadores('reserva', this)">
                             Ver tabla completa <i class="fa-solid fa-chevron-down"></i>
@@ -616,15 +625,7 @@
                 </div>
                 
                 <div id="reserva-valla" class="sub-content">
-                    <div style="text-align: right; margin-bottom: 15px;">
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="descargarImagen('cap-reserva-valla', 'Valla_Invicta_Reserva')">
-                            <i class="fa-solid fa-camera"></i> <span>Guardar Ranking</span>
-                        </button>
-                    </div>
-                    <div id="cap-reserva-valla" style="padding: 10px; border-radius: 10px;">
-                        <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:15px; text-transform:uppercase;">Valla Invicta Reserva - Clausura</div>
-                        <div id="valla-reserva-list" class="goleadores-list"></div>
-                    </div>
+                    <div id="valla-reserva-list" class="goleadores-list"></div>
                 </div>
             </div>
         </div>
@@ -633,17 +634,11 @@
             <div class="card">
                 <div class="bracket-stage-title" style="justify-content: space-between;">
                     <span><i class="fa-solid fa-layer-group"></i> Tabla Acumulada</span>
-                    <div style="display:flex; gap:10px;">
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="descargarImagen('cap-general-posiciones', 'Tabla_General')">
-                            <i class="fa-solid fa-camera"></i>
-                        </button>
-                        <button class="toggle-cols-btn" style="display:inline-flex; align-items:center; gap:6px; margin:0;" onclick="toggleCols('tabla-general', this)">
-                            <i class="fa-solid fa-arrows-left-right"></i> <span class="hide-mobile">Ver GF/GC</span>
-                        </button>
-                    </div>
+                    <button class="toggle-cols-btn" style="margin:0;" onclick="toggleCols('tabla-general', this)">
+                        <i class="fa-solid fa-arrows-left-right"></i> <span>Ver GF/GC</span>
+                    </button>
                 </div>
-                <div class="table-responsive" id="cap-general-posiciones" style="padding: 10px; border-radius: 10px;">
-                    <div class="foto-titulo" style="display:none; text-align:center; color:#00ff87; font-weight:900; font-size:1.2rem; margin-bottom:10px; text-transform:uppercase;">Tabla Acumulada - General</div>
+                <div class="table-responsive">
                     <table id="tabla-general">
                         <thead><tr><th>Pos</th><th>Equipo</th><th>PJ Tot</th><th class="hide-mobile">GF</th><th class="hide-mobile">GC</th><th>DF</th><th>PTS</th></tr></thead>
                         <tbody id="tabla-general-body"></tbody>
@@ -687,21 +682,21 @@
         const EQUIPOS = { POTRERO: "Potrero FC", JUVE: "Juventud Unida", CONFRA: "Confraternidad", IMPERIO: "Real Imperio FC", MUNI: "Muni San Basilio", MAYOL: "Carlos A. Mayol" };
         
         const datosPrimera = [
-            { nombre: "Potrero FC", pj: 3, pts: 7, gf: 9, gc: 2, foto: "https://i.postimg.cc/02Bjtx8c/Potrero-Removed.png" }, 
-            { nombre: "Juventud Unida", pj: 3, pts: 6, gf: 6, gc: 7, foto: "https://i.postimg.cc/xjpKMwbk/Escudo-GL-removebg-preview.png" },
-            { nombre: "Confraternidad", pj: 3, pts: 7, gf: 5, gc: 3, foto: "https://i.postimg.cc/t4YvFdTh/Escudo-C-A-C-removebg-preview.png" },
-            { nombre: "Muni San Basilio", pj: 3, pts: 0, gf: 4, gc: 8, foto: "https://i.postimg.cc/vBhH5wq5/Muni-San-Basilio-Removed.png" }, 
-            { nombre: "Real Imperio FC", pj: 3, pts: 2, gf: 4, gc: 6, foto: "https://i.postimg.cc/bJbR33c0/escudo-imperio-removebg-preview.png" },
-            { nombre: "Carlos A. Mayol", pj: 3, pts: 3, gf: 4, gc: 6, foto: "https://i.postimg.cc/ZK2Y8ccg/Carlos-A-Mayol-Removed.png" }
+            { nombre: "Potrero FC", pj: 2, pts: 4, gf: 6, gc: 2, foto: "https://i.postimg.cc/02Bjtx8c/Potrero-Removed.png" }, 
+            { nombre: "Juventud Unida", pj: 2, pts: 3, gf: 3, gc: 6, foto: "https://i.postimg.cc/xjpKMwbk/Escudo-GL-removebg-preview.png" },
+            { nombre: "Confraternidad", pj: 2, pts: 4, gf: 3, gc: 2, foto: "https://i.postimg.cc/t4YvFdTh/Escudo-C-A-C-removebg-preview.png" },
+            { nombre: "Muni San Basilio", pj: 2, pts: 0, gf: 3, gc: 6, foto: "https://i.postimg.cc/vBhH5wq5/Muni-San-Basilio-Removed.png" }, 
+            { nombre: "Real Imperio FC", pj: 2, pts: 2, gf: 3, gc: 3, foto: "https://i.postimg.cc/bJbR33c0/escudo-imperio-removebg-preview.png" },
+            { nombre: "Carlos A. Mayol", pj: 2, pts: 3, gf: 4, gc: 3, foto: "https://i.postimg.cc/ZK2Y8ccg/Carlos-A-Mayol-Removed.png" }
         ];
         
         const datosReserva = [
-            { nombre: "Potrero FC", pj: 3, pts: 0, gf: 0, gc: 4, foto: "https://i.postimg.cc/02Bjtx8c/Potrero-Removed.png" }, 
-            { nombre: "Juventud Unida", pj: 3, pts: 7, gf: 8, gc: 4, foto: "https://i.postimg.cc/xjpKMwbk/Escudo-GL-removebg-preview.png" },
-            { nombre: "Confraternidad", pj: 3, pts: 1, gf: 2, gc: 5, foto: "https://i.postimg.cc/t4YvFdTh/Escudo-C-A-C-removebg-preview.png" },
-            { nombre: "Muni San Basilio", pj: 3, pts: 7, gf: 6, gc: 3, foto: "https://i.postimg.cc/vBhH5wq5/Muni-San-Basilio-Removed.png" }, 
-            { nombre: "Real Imperio FC", pj: 3, pts: 4, gf: 4, gc: 5, foto: "https://i.postimg.cc/bJbR33c0/escudo-imperio-removebg-preview.png" },
-            { nombre: "Carlos A. Mayol", pj: 3, pts: 6, gf: 4, gc: 3, foto: "https://i.postimg.cc/ZK2Y8ccg/Carlos-A-Mayol-Removed.png" }
+            { nombre: "Potrero FC", pj: 2, pts: 0, gf: 0, gc: 3, foto: "https://i.postimg.cc/02Bjtx8c/Potrero-Removed.png" }, 
+            { nombre: "Juventud Unida", pj: 2, pts: 4, gf: 3, gc: 1, foto: "https://i.postimg.cc/xjpKMwbk/Escudo-GL-removebg-preview.png" },
+            { nombre: "Confraternidad", pj: 2, pts: 1, gf: 1, gc: 2, foto: "https://i.postimg.cc/t4YvFdTh/Escudo-C-A-C-removebg-preview.png" },
+            { nombre: "Muni San Basilio", pj: 2, pts: 4, gf: 3, gc: 2, foto: "https://i.postimg.cc/vBhH5wq5/Muni-San-Basilio-Removed.png" }, 
+            { nombre: "Real Imperio FC", pj: 2, pts: 4, gf: 1, gc: 0, foto: "https://i.postimg.cc/bJbR33c0/escudo-imperio-removebg-preview.png" },
+            { nombre: "Carlos A. Mayol", pj: 2, pts: 3, gf: 4, gc: 3, foto: "https://i.postimg.cc/ZK2Y8ccg/Carlos-A-Mayol-Removed.png" }
         ];
         
         const resultadosHistoricos = {
@@ -715,11 +710,6 @@
                     { local: "Potrero FC", gl: 4, visitante: "Juventud Unida", gv: 0 }, 
                     { local: "Carlos A. Mayol", gl: 3, visitante: "Muni San Basilio", gv: 1 }, 
                     { local: "Real Imperio FC", gl: 1, visitante: "Confraternidad", gv: 1 }
-                ]},
-                { id: "f3", nombre: "FECHA 3", libre: "-", partidos: [
-                    { local: "Carlos A. Mayol", gl: 0, visitante: "Potrero FC", gv: 3 }, 
-                    { local: "Confraternidad", gl: 2, visitante: "Muni San Basilio", gv: 1 }, 
-                    { local: "Juventud Unida", gl: 3, visitante: "Real Imperio FC", gv: 1 }
                 ]}
             ],
             reserva: [
@@ -732,11 +722,6 @@
                     { local: "Potrero FC", gl: 0, visitante: "Juventud Unida", gv: 2 }, 
                     { local: "Carlos A. Mayol", gl: 1, visitante: "Muni San Basilio", gv: 2 }, 
                     { local: "Real Imperio FC", gl: 0, visitante: "Confraternidad", gv: 0 }
-                ]},
-                { id: "f3", nombre: "FECHA 3", libre: "-", partidos: [
-                    { local: "Carlos A. Mayol", gl: 1, visitante: "Potrero FC", gv: 0 }, 
-                    { local: "Confraternidad", gl: 1, visitante: "Muni San Basilio", gv: 3 }, 
-                    { local: "Juventud Unida", gl: 5, visitante: "Real Imperio FC", gv: 3 }
                 ]}
             ]
         };
@@ -759,14 +744,7 @@
             { nombre: "Lázaro Bozanini", equipo: "Confraternidad", goles: 1, escudo: getFoto("Confraternidad") },
             { nombre: "Silvio Lima", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
             { nombre: "Tomas Boaglio", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
-            { nombre: "Tomas Moriondo", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
-            { nombre: "Farias Valentin", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
-            { nombre: "Bildoza Kevin", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
-            { nombre: "Gaston Ramonda", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
-            { nombre: "Hernan Arias", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
-            { nombre: "Néstor Oyola", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
-            { nombre: "Enzo Rosales", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
-            { nombre: "Maxi Fernández", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") }
+            { nombre: "Tomas Moriondo", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") }
         ];
 
         const vallaInvictaPrimera = [];
@@ -777,20 +755,13 @@
         const goleadoresDataReserva = [
             { nombre: "Mayco Arias", equipo: "Muni San Basilio", goles: 2, escudo: getFoto("Muni San Basilio") },
             { nombre: "Nicolino Ávila", equipo: "Juventud Unida", goles: 2, escudo: getFoto("Juventud Unida") },
-            { nombre: "Fran Torres", equipo: "Real Imperio FC", goles: 3, escudo: getFoto("Real Imperio FC") },
+            { nombre: "Fran Torres", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
             { nombre: "Genaro Giles", equipo: "Confraternidad", goles: 1, escudo: getFoto("Confraternidad") },
             { nombre: "Gustavo Ruarte", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
-            { nombre: "Joaquin Trigo", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
+            { nombre: "Joaquin Trigo", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
             { nombre: "Juan Torres", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
             { nombre: "Sebastián Vega", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
-            { nombre: "Tomas Ojeda", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
-            { nombre: "Agustín Giraudo", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
-            { nombre: "Juan Burany", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
-            { nombre: "Mariano Fernández", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
-            { nombre: "Bruno Díaz", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
-            { nombre: "Matías Suárez", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
-            { nombre: "Marcos Torres", equipo: "Juventud Unida", goles: 2, escudo: getFoto("Juventud Unida") },
-            { nombre: "Tomy Molinero", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") }
+            { nombre: "Tomas Ojeda", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") }
         ];
 
         const teamsData = {
@@ -802,47 +773,6 @@
             'imperio': { name: 'Real Imperio Futbol Club', location: 'Río Cuarto, Provincia de Córdoba', stadium: 'Pucará IV', stadiumUrl: 'http://maps.google.com', ig: 'https://www.instagram.com/realimperiofc_?igsh=YTl1ZmdlYm53YjU5', logo: 'https://i.postimg.cc/bJbR33c0/escudo-imperio-removebg-preview.png' }
         };
 // LÓGICA UI
-        // FUNCIÓN DE DESCARGA DE IMAGEN
-        function descargarImagen(elementoId, nombreArchivo) {
-            const elemento = document.getElementById(elementoId);
-            const tituloOculto = elemento.querySelector('.foto-titulo');
-            
-            // Guardamos estilos originales
-            const originalBg = elemento.style.background;
-            
-            // Preparamos el elemento para la foto (Fondo negro para que no salga transparente y mostramos título)
-            elemento.style.background = '#07090b'; 
-            if(tituloOculto) tituloOculto.style.display = 'block';
-            
-            // Efecto de carga en el botón
-            const btn = event.currentTarget;
-            const textoOriginal = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-
-            html2canvas(elemento, {
-                backgroundColor: '#07090b', // Color de fondo base de la web
-                scale: 2, // Aumenta la resolución de la imagen descargada
-                useCORS: true // Permite cargar los escudos externos desde PostImage sin error
-            }).then(canvas => {
-                // Restauramos el diseño
-                elemento.style.background = originalBg;
-                if(tituloOculto) tituloOculto.style.display = 'none';
-                btn.innerHTML = textoOriginal;
-                
-                // Creamos un link fantasma para forzar la descarga
-                const link = document.createElement('a');
-                link.download = nombreArchivo + '.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            }).catch(err => {
-                console.error("Error al capturar imagen:", err);
-                elemento.style.background = originalBg;
-                if(tituloOculto) tituloOculto.style.display = 'none';
-                btn.innerHTML = textoOriginal;
-                alert("Hubo un error al generar la imagen. Intentá de nuevo.");
-            });
-        }
-
         function getFoto(eqNombre) {
             const found = datosPrimera.find(e => e.nombre === eqNombre);
             return found ? found.foto : 'https://i.postimg.cc/7Z6v0sZ1/default-escudo.png';
