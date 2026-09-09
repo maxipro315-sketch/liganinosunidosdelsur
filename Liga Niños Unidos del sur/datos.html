@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Liga | Liga Sur Cordobesa</title>
+    <style>
+        :root {
+            /* Paleta de colores deportivos y modernos */
+            --bg-gradient: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+            --bg-card: #ffffff;
+            --primary: #3b82f6; 
+            --primary-hover: #2563eb;
+            --accent-green: linear-gradient(to right, #10b981, #059669);
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --danger: #ef4444; 
+            --danger-hover: #dc2626;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--bg-card);
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* Encabezado */
+        .header-app {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #f1f5f9;
+        }
+
+        .header-app h2 {
+            margin: 0;
+            font-size: 26px;
+            color: #1e3a8a;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .header-app p {
+            margin: 5px 0 0 0;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        label {
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Inputs y Selects */
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            margin-bottom: 15px;
+            border: 2px solid #f1f5f9;
+            background-color: #f8fafc;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .fila-doble {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .fila-doble input, .fila-doble select {
+            min-width: 0;
+        }
+
+        /* Editor de Goleador */
+        .goleador-editor {
+            background-color: #ffffff;
+            border: 2px solid var(--primary);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .goleador-editor::before {
+            content: 'NUEVO GOLEADOR';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Botones */
+        button {
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        .btn-primario {
+            background: var(--accent-green);
+            color: white;
+            padding: 18px;
+            width: 100%;
+            font-size: 18px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primario:hover {
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-mostrar-editor {
+            background-color: #eff6ff;
+            color: var(--primary);
+            padding: 14px 15px;
+            width: 100%;
+            font-size: 15px;
+            margin-bottom: 20px;
+            border: 2px dashed #bfdbfe;
+        }
+
+        .btn-mostrar-editor:hover {
+            background-color: #dbeafe;
+        }
+
+        .area-acciones-editor {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .btn-secundario {
+            background-color: #f1f5f9;
+            color: var(--text-secondary);
+            padding: 10px 18px;
+            font-size: 14px;
+        }
+
+        .btn-aceptar {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            font-size: 14px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Diseño de las Tarjetitas de Goleadores */
+        .lista-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .tarjetita-chica {
+            background-color: #ffffff;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--primary);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            animation: aparecer 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .info-jugador {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .fila-superior {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fila-inferior {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nombre-resaltado {
+            font-weight: 800;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+
+        /* Etiquetas */
+        .tag {
+            font-size: 11px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .club-tag {
+            background-color: #1e293b;
+            color: #ffffff;
+        }
+        
+        .cat-tag-primera {
+            background-color: #fef08a; 
+            color: #854d0e;
+        }
+
+        .cat-tag-reserva {
+            background-color: #fed7aa; 
+            color: #9a3412;
+        }
+
+        .goles-numero {
+            background: #f1f5f9;
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .btn-eliminar-icon {
+            background: #fee2e2;
+            color: var(--danger);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .btn-eliminar-icon:hover {
+            background: var(--danger);
+            color: white;
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(15px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-app">
+        <h2>🏆 Liga Sur Cordobesa</h2>
+        <p>Reporte oficial de goleadores por partido</p>
+    </div>
+    
+    <form id="formulario-liga">
+        <!-- SECCIÓN CLUB -->
+        <label for="club-principal">Tu Club:</label>
+        <select id="club-principal" name="club_principal" required>
+            <option value="">-- Toca para elegir tu equipo --</option>
+            <option value="Juventud Unida">Juventud Unida</option>
+            <option value="Confraternidad">Confraternidad</option>
+            <option value="Potrero Fc">Potrero Fc</option>
+            <option value="Real Imperio Fc">Real Imperio Fc</option>
+            <option value="Muni San Basilio">Muni San Basilio</option>
+            <option value="Carlos A. Mayol">Carlos A. Mayol</option>
+        </select>
+
+        <!-- SECCIÓN GOLEADORES -->
+        <label>Goleadores (⚽):</label>
+        
+        <div id="lista-goleadores" class="lista-items"></div>
+
+        <!-- EDITOR DE GOLEADOR -->
+        <div id="editor-goleador" class="goleador-editor">
+            <div class="fila-doble">
+                <input type="text" id="edit-nom-gol" placeholder="Nombre">
+                <input type="text" id="edit-ape-gol" placeholder="Apellido">
+            </div>
+            <div class="fila-doble">
+                <select id="edit-cat-gol">
+                    <option value="">Categoría</option>
+                    <option value="Primera">Primera</option>
+                    <option value="Reserva">Reserva</option>
+                </select>
+                <input type="number" id="edit-can-gol" placeholder="Goles" min="1">
+            </div>
+            <div class="area-acciones-editor">
+                <button type="button" class="btn-secundario" onclick="cancelarGoleador()">Ocultar</button>
+                <button type="button" class="btn-aceptar" onclick="aceptarGoleador()">Aceptar ✔</button>
+            </div>
+        </div>
+        
+        <!-- BOTÓN PARA AGREGAR OTRO -->
+        <button type="button" class="btn-mostrar-editor" id="btn-mostrar-editor" style="display: none;" onclick="mostrarEditorGoleador()">
+            + Agregar otro goleador
+        </button>
+
+        <!-- BOTÓN ENVIAR FINAL -->
+        <button type="submit" class="btn-primario">Enviar Reporte 🚀</button>
+    </form>
+</div>
+
+<script>
+    let contadorGoleadores = 0;
+
+    function mostrarEditorGoleador() {
+        document.getElementById('editor-goleador').style.display = 'block';
+        document.getElementById('btn-mostrar-editor').style.display = 'none';
+        document.getElementById('edit-nom-gol').focus();
+    }
+    
+    function cancelarGoleador() {
+        document.getElementById('edit-nom-gol').value = '';
+        document.getElementById('edit-ape-gol').value = '';
+        document.getElementById('edit-cat-gol').value = '';
+        document.getElementById('edit-can-gol').value = '';
+        document.getElementById('editor-goleador').style.display = 'none';
+        
+        document.getElementById('btn-mostrar-editor').style.display = 'block';
+    }
+
+    function aceptarGoleador() {
+        const nombre = document.getElementById('edit-nom-gol').value.trim();
+        const apellido = document.getElementById('edit-ape-gol').value.trim();
+        const categoria = document.getElementById('edit-cat-gol').value;
+        const goles = document.getElementById('edit-can-gol').value;
+        const club = document.getElementById('club-principal').value;
+
+        if(!club){ 
+            alert("⚠️ Por favor, seleccioná tu club arriba del todo."); 
+            return;
+        }
+        if(!nombre || !apellido || !categoria || !goles || goles < 1) { 
+            alert("⚠️ Completá nombre, apellido, categoría y cantidad de goles."); 
+            return; 
+        }
+
+        contadorGoleadores++;
+        const idTarjeta = 'gol_' + contadorGoleadores;
+        
+        const claseCategoria = categoria === 'Primera' ? 'cat-tag-primera' : 'cat-tag-reserva';
+
+        const htmlTarjeta = `
+            <div class="tarjetita-chica" id="${idTarjeta}">
+                <div class="info-jugador">
+                    <div class="fila-superior">
+                        <span class="nombre-resaltado">${nombre} ${apellido}</span> 
+                        <span class="goles-numero">${goles} ⚽</span>
+                    </div>
+                    <div class="fila-inferior">
+                        <span class="tag club-tag">${club}</span>
+                        <span class="tag ${claseCategoria}">${categoria}</span>
+                    </div>
+                </div>
+                <!-- Inputs ocultos -->
+                <input type="hidden" name="gol_nom[]" value="${nombre}">
+                <input type="hidden" name="gol_ape[]" value="${apellido}">
+                <input type="hidden" name="gol_cat[]" value="${categoria}">
+                <input type="hidden" name="gol_can[]" value="${goles}">
+                <button type="button" class="btn-eliminar-icon" onclick="eliminarTarjeta('${idTarjeta}')">🗑</button>
+            </div>
+        `;
+
+        document.getElementById('lista-goleadores').insertAdjacentHTML('beforeend', htmlTarjeta);
+        
+        cancelarGoleador(); 
+    }
+
+    function eliminarTarjeta(id) {
+        const tarjeta = document.getElementById(id);
+        tarjeta.style.opacity = '0';
+        tarjeta.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            tarjeta.remove();
+        }, 200);
+    }
+
+    // --- ACÁ OCURRE LA MAGIA DEL ENVÍO ---
+    document.getElementById('formulario-liga').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const btnEnviar = document.querySelector('.btn-primario');
+        const textoOriginal = btnEnviar.innerHTML;
+        btnEnviar.innerHTML = 'Enviando Reporte... ⏳';
+        btnEnviar.disabled = true;
+
+        const club = document.getElementById('club-principal').value;
+
+        const nombres = document.getElementsByName('gol_nom[]');
+        const apellidos = document.getElementsByName('gol_ape[]');
+        const categorias = document.getElementsByName('gol_cat[]');
+        const goles = document.getElementsByName('gol_can[]');
+
+        let listaGoleadores = [];
+        
+        for(let i = 0; i < nombres.length; i++) {
+            listaGoleadores.push({
+                nombre: nombres[i].value,
+                apellido: apellidos[i].value,
+                categoria: categorias[i].value,
+                goles: goles[i].value
+            });
+        }
+
+        const paqueteDatos = {
+            club: club,
+            goleadores: listaGoleadores
+        };
+
+        // Tu link de Google Apps Script integrado
+        const LINK_GOOGLE = 'https://script.google.com/macros/s/AKfycbyI579iUAeuLBiDcRHd6zt2kfjA56AMLo9ygGFoSZhnE7F1aMbX-Kko7aLyni8o8a6oNw/exec'; 
+
+        fetch(LINK_GOOGLE, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(paqueteDatos)
+        })
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            alert("🏆 ¡Reporte enviado con éxito a la planilla!");
+            window.location.reload(); 
+        })
+        .catch(error => {
+            alert("⚠️ Hubo un error. Revisá tu conexión a internet.");
+            btnEnviar.innerHTML = textoOriginal;
+            btnEnviar.disabled = false;
+        });
+    });
+</script>
+
+</body>
+</html>

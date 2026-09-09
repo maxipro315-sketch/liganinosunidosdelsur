@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZQGH42WP8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DZQGH42WP8');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Liga Niños Unidos Del Sur | Inicio</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/mkqpYh73/Logo-Liga.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === VARIABLES PREMIUM === */
+        :root {
+            --bg-base: #07090b;
+            --bg-card: rgba(20, 24, 28, 0.7);
+            --primary-neon: #00ff87;
+            --primary-dark: #00cc6a;
+            --text-main: #ffffff;
+            --text-muted: #a0aab2;
+            --border-glass: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* === 1. HEADER PROFESIONAL === */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(7, 9, 11, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            z-index: 1000;
+            padding: 12px 0;
+            transition: all 0.4s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 45px; height: 45px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(0, 255, 135, 0.4));
+        }
+
+        .brand-text h1 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            font-size: 0.7rem;
+            color: var(--primary-neon);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center;}
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
+        .nav-link.active { color: var(--primary-neon); background: rgba(0, 255, 135, 0.1); }
+
+        /* === 2. HERO PRINCIPAL === */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://i.postimg.cc/1RDw1t2T/Clausura.jpg') center/cover no-repeat;
+            animation: slowZoom 25s infinite alternate linear;
+            z-index: 1;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(0deg, var(--bg-base) 5%, rgba(7, 9, 11, 0.6) 50%, rgba(7, 9, 11, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .hero-lights {
+            position: absolute;
+            top: -20%; left: 50%;
+            transform: translateX(-50%);
+            width: 80%; height: 50%;
+            background: radial-gradient(ellipse at top, rgba(0, 255, 135, 0.15) 0%, transparent 70%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+            animation: fadeUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .season-badge {
+            display: inline-block;
+            background: rgba(0, 255, 135, 0.1);
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            color: var(--primary-neon);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 135, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            background: linear-gradient(to right, #ffffff, #c2c2c2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--primary-neon);
+            color: var(--bg-base);
+            padding: 16px 36px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 255, 135, 0.3);
+        }
+
+        .hero-btn-alt {
+            background: rgba(255,255,255,0.05); 
+            color: var(--text-main); 
+            border: 1px solid var(--border-glass); 
+            box-shadow: none;
+        }
+
+        /* === CENTRAL DEL TORNEO === */
+        .live-hub {
+            max-width: 1100px;
+            margin: -80px auto 40px auto; 
+            padding: 0 20px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+
+        .hub-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .hub-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; border-bottom: 1px solid var(--border-glass); padding-bottom: 15px;
+        }
+
+        .hub-header h3 { font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+        .hub-header h3 i { color: var(--primary-neon); }
+        .hub-link { font-size: 0.85rem; color: #3b82f6; text-decoration: none; font-weight: 700; }
+
+        /* Lista de Partidos */
+        .match-list { display: flex; flex-direction: column; gap: 15px; }
+        
+        .match-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid transparent;
+        }
+
+        .match-time { font-size: 0.85rem; font-weight: 800; color: var(--primary-neon); background: rgba(0, 255, 135, 0.1); padding: 4px 8px; border-radius: 6px; }
+        .match-teams { flex-grow: 1; text-align: center; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: center; gap: 10px;}
+        .match-teams .vs { color: var(--text-muted); font-size: 0.8rem; }
+        .match-cancha { font-size: 0.8rem; color: var(--text-muted); text-align: right; }
+
+        /* Tabla Resumen */
+        .hub-table { width: 100%; border-collapse: collapse; text-align: center; }
+        .hub-table th { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; padding-bottom: 10px; border-bottom: 1px solid var(--border-glass); }
+        .hub-table td { padding: 12px 5px; font-size: 0.95rem; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.02); }
+        .hub-table tr:last-child td { border-bottom: none; }
+        .hub-table .pos { font-weight: 900; width: 30px; }
+        .hub-table .pos-1 { color: #00cc6a; }
+        .hub-table .team-name { text-align: left; }
+
+        /* === 3. TARJETAS DE ACCESO RÁPIDO === */
+        .quick-access {
+            max-width: 1100px; 
+            margin: 0 auto 40px auto; 
+            padding: 0 20px;
+            position: relative;
+            z-index: 20;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            padding: 30px;
+            text-decoration: none;
+            color: var(--text-main);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-icon-wrap {
+            width: 60px; height: 60px;
+            background: rgba(0, 255, 135, 0.1);
+            border: 1px solid rgba(0, 255, 135, 0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon { font-size: 1.8rem; color: var(--primary-neon); }
+        .card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
+        .card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; flex-grow: 1; }
+        .card-arrow { align-self: flex-end; margin-top: 20px; color: var(--text-muted); font-size: 1.2rem; }
+
+        /* === SLIDESHOW === */
+        .sponsors-slideshow-section {
+            max-width: 900px; margin: 0 auto 60px auto; padding: 30px 20px;
+            background: rgba(20, 24, 28, 0.5); border: 1px dashed var(--border-glass);
+            border-radius: 20px; text-align: center; position: relative; z-index: 15;
+        }
+
+        .sponsors-carousel-title { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 800; margin-bottom: 20px; }
+        .sponsors-slideshow-container { position: relative; height: 160px; width: 100%; display: flex; align-items: center; justify-content: center; }
+        .sponsor-slide { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 1s ease-in-out; pointer-events: none; }
+        .sponsor-slide.active { opacity: 1; pointer-events: auto; }
+        .sponsor-slide img { max-height: 140px; max-width: 90%; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); }
+
+        /* === INSTITUCIONAL & FOOTER === */
+        .institutional { text-align: center; padding: 20px 20px 60px 20px; max-width: 800px; margin: 0 auto; }
+        .inst-icon { font-size: 2rem; color: rgba(255,255,255,0.1); margin-bottom: 20px; }
+        .institutional h2 { font-size: 2rem; font-weight: 900; text-transform: uppercase; margin-bottom: 15px; }
+        .institutional p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; font-weight: 300; }
+        .institutional strong { color: var(--primary-neon); font-weight: 600; }
+
+        footer { background: #040506; border-top: 1px solid var(--border-glass); padding: 40px 20px; text-align: center; }
+        .social-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .social-link { width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: var(--text-main); font-size: 1.2rem; text-decoration: none; }
+        .footer-text { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* === OPTIMIZACIÓN EXTREMA PARA CELULARES (MOBILE FIRST) === */
+        @media (max-width: 900px) {
+            .hero-title { font-size: 2.8rem; }
+            .header-container { flex-direction: column; gap: 10px; padding: 12px 10px; }
+            nav { width: 100%; justify-content: center; gap: 8px;}
+            .hub-grid { grid-template-columns: 1fr; }
+            .live-hub { margin-top: -30px; }
+        }
+
+        @media (max-width: 480px) {
+            .brand img { width: 35px; height: 35px; }
+            .brand-text h1 { font-size: 1rem; }
+            .nav-link { padding: 6px 12px; font-size: 0.8rem; }
+            
+            .hero { margin-top: 80px; min-height: 70vh; padding: 60px 0; }
+            .hero-title { font-size: 2.3rem; margin-bottom: 15px; }
+            .hero-desc { font-size: 0.95rem; margin-bottom: 25px; padding: 0 10px; }
+            .season-badge { padding: 6px 15px; font-size: 0.75rem; margin-bottom: 20px; }
+            
+            .hero-btn { width: 100%; padding: 14px 20px; font-size: 1rem; margin-bottom: 10px; }
+            .hero-content div[style*="display: flex"] { flex-direction: column; gap: 10px; }
+            
+            .live-hub { padding: 0 15px; margin-top: -30px; margin-bottom: 30px; }
+            .hub-card { padding: 15px; border-radius: 15px; }
+            .hub-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            
+            /* REORGANIZACIÓN DE PARTIDOS EN CELULAR (Sin la caja de hora) */
+            .match-item {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 10px;
+                gap: 8px;
+            }
+            .match-teams {
+                width: 100%; 
+                font-size: 1.1rem;
+                margin-bottom: 0;
+            }
+            .match-cancha { 
+                width: 100%;
+                text-align: center; 
+                font-size: 0.85rem;
+            }
+
+            .hub-table th, .hub-table td { padding: 8px 3px; font-size: 0.85rem; }
+            .hub-table .pos { width: 20px; }
+
+            .quick-access { grid-template-columns: 1fr; gap: 15px; padding: 0 15px; margin-top: 0; margin-bottom: 30px;}
+            .card { padding: 20px; border-radius: 15px; }
+            .card h3 { font-size: 1.25rem; }
+            .card-icon-wrap { width: 50px; height: 50px; margin-bottom: 15px; }
+
+            .sponsors-slideshow-section { margin: 0 15px 30px 15px; padding: 20px 10px; height: auto;}
+            .sponsors-slideshow-container { height: 100px; }
+            .sponsor-slide img { max-height: 80px; }
+            
+            .institutional { padding: 10px 15px 40px 15px; }
+            .institutional h2 { font-size: 1.5rem; }
+            .institutional p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="brand">
+                <img src="https://i.postimg.cc/mkqpYh73/Logo-Liga.png" alt="Escudo Liga">
+                <div class="brand-text">
+                    <h1>Liga Niños Unidos</h1>
+                    <span>Sitio Oficial</span>
+                </div>
+            </a>
+            <nav>
+                <a href="index.html" class="nav-link active">Inicio</a>
+                <a href="noticias.html" class="nav-link">Noticias</a>
+                <a href="apertura.html" class="nav-link">Apertura</a>
+                <a href="clausura.html" class="nav-link">Clausura</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-lights"></div>
+        
+        <div class="hero-content">
+            <div class="season-badge"><i class="fa-solid fa-bolt"></i> Arrancó el Clausura</div>
+            <h2 class="hero-title">La Pasión<br>Se Renueva</h2>
+            <p class="hero-desc">¡Potrero FC hizo historia en el Apertura! Pero el fútbol no da respiro y la pelota ya rueda en el Torneo Clausura. Acompañá a tu equipo en este nuevo desafío.</p>
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <a href="clausura.html" class="hero-btn" style="background: #3b82f6; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);">
+                    Ver Clausura <i class="fa-solid fa-chevron-right"></i>
+                </a>
+                <a href="apertura.html" class="hero-btn hero-btn-alt">
+                    Archivo Apertura <i class="fa-solid fa-trophy" style="color: var(--gold-1);"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- === CENTRAL DEL TORNEO === -->
+    <section class="live-hub">
+        <div class="hub-grid">
+            
+            <!-- Bloque 1: Próxima Fecha -->
+            <div class="hub-card">
+                <div class="hub-header">
+                    <h3><i class="fa-solid fa-calendar-days"></i> Próxima Fecha</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Fecha 5 - Clausura</span>
+                </div>
+                <div class="match-list">
+                    <div class="match-item">
+                        <div class="match-teams" style="justify-content: flex-start;"><span>Muni San Basilio</span> <span class="vs">vs</span> <span>Potrero FC</span></div>
+                        <div class="match-cancha"><i class="fa-solid fa-location-dot"></i> San Basilio</div>
+                    </div>
+                    <div class="match-item">
+                        <div class="match-teams" style="justify-content: flex-start;"><span>C.A. Mayol</span> <span class="vs">vs</span> <span>Real Imperio FC</span></div>
+                        <div class="match-cancha"><i class="fa-solid fa-location-dot"></i> Huanchilla</div>
+                    </div>
+                    <div class="match-item">
+                        <div class="match-teams" style="justify-content: flex-start;"><span>Confraternidad</span> <span class="vs">vs</span> <span>Juventud Unida</span></div>
+                        <div class="match-cancha"><i class="fa-solid fa-location-dot"></i> Monte De Los Gauchos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque 2: Semáforo de Posiciones -->
+            <div class="hub-card">
+                <div class="hub-header">
+                    <h3><i class="fa-solid fa-ranking-star"></i> Posiciones Primera</h3>
+                    <a href="clausura.html" class="hub-link">Ver tabla completa <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <table class="hub-table">
+                    <tr>
+                        <th>#</th>
+                        <th class="team-name">Equipo</th>
+                        <th>PJ</th>
+                        <th>Pts</th>
+                    </tr>
+                    <tr>
+                        <td class="pos pos-1">1</td>
+                        <td class="team-name">Potrero FC</td>
+                        <td>4</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">2</td>
+                        <td class="team-name">Juventud Unida</td>
+                        <td>4</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">3</td>
+                        <td class="team-name">Confraternidad</td>
+                        <td>4</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td class="pos">4</td>
+                        <td class="team-name">Muni San Basilio</td>
+                        <td>4</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- === TARJETAS DE ACCESO RÁPIDO === -->
+    <section class="quick-access">
+        
+        <a href="clausura.html" class="card" style="border-color: rgba(59, 130, 246, 0.3);">
+            <div class="card-icon-wrap" style="background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2);"><i class="fa-solid fa-fire card-icon" style="color: #3b82f6;"></i></div>
+            <h3>Torneo Clausura</h3>
+            <p>¡El nuevo torneo ya empezó! Seguí el fixture, la tabla de posiciones y el ranking de goleadores fecha a fecha.</p>
+            <i class="fa-solid fa-arrow-right card-arrow" style="color: #3b82f6;"></i>
+        </a>
+
+        <a href="noticias.html" class="card">
+            <div class="card-icon-wrap"><i class="fa-solid fa-newspaper card-icon"></i></div>
+            <h3>Noticias y Campeones</h3>
+            <p>Reviví la consagración histórica de Potrero FC, leé las últimas resoluciones del tribunal y enterate de todo.</p>
+            <i class="fa-solid fa-arrow-right card-arrow"></i>
+        </a>
+
+        <a href="apertura.html" class="card">
+            <div class="card-icon-wrap" style="background: rgba(255, 215, 0, 0.05); border-color: rgba(255, 215, 0, 0.2);"><i class="fa-solid fa-trophy card-icon" style="color: var(--gold-1);"></i></div>
+            <h3>Archivo Apertura</h3>
+            <p>Consultá cómo terminaron las tablas, el camino a la gran final y los goleadores definitivos del primer torneo del año.</p>
+            <i class="fa-solid fa-arrow-right card-arrow"></i>
+        </a>
+
+    </section>
+
+    <!-- === SECCIÓN SLIDESHOW DE SPONSORS === -->
+    <section class="sponsors-slideshow-section">
+        <h3 class="sponsors-carousel-title">Auspiciantes Oficiales</h3>
+        
+        <div class="sponsors-slideshow-container">
+            
+            <a href="https://burgerpiola.netlify.app/" target="_blank" class="sponsor-slide active">
+                <img src="https://i.postimg.cc/tCC5G4M0/Burguer-Piola.png" alt="Burger Piola">
+            </a>
+            
+            <a href="https://www.instagram.com/cadeteria_leon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="sponsor-slide">
+                <img src="https://i.postimg.cc/44w6PTNp/Cadeteria-el-Leon.png" alt="Cadetería El León">
+            </a>
+            
+            <a href="#" target="_blank" class="sponsor-slide" style="pointer-events: none;">
+                <img src="https://i.postimg.cc/TwFdrPh5/San-Jose-Carnes.png" alt="Carnicería San José">
+            </a>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.sponsor-slide');
+            let currentSlide = 0;
+            
+            if(slides.length > 0) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 5000);
+            }
+        });
+    </script>
+
+    <section class="institutional">
+        <i class="fa-solid fa-quote-left inst-icon"></i>
+        <h2>Más que una liga, una familia</h2>
+        <p>Impulsamos el desarrollo del deporte amateur en el sur de la provincia, fomentando el <strong>respeto, la pasión y la competencia sana</strong>. Creemos en el fútbol como motor de integración para todos nuestros clubes e hinchas.</p>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://whatsapp.com/channel/0029VbAoJA67DAX6oSJ3KM1u" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/ligadelsur_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p class="footer-text"><strong>Sitio Web Oficial</strong> - Liga Niños Unidos Del Sur.</p>
+        <p class="footer-text" style="margin-top: 8px; opacity: 0.5;">Desarrollado con pasión para el fútbol regional &copy; 2026.</p>
+    </footer>
+
+</body>
+</html>
