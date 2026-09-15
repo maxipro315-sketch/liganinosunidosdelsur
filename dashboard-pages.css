@@ -1,0 +1,357 @@
+/* Sistema compartido para las vistas internas del dashboard */
+:root {
+    --dash-bg: #f4f6f8;
+    --dash-surface: #fff;
+    --dash-ink: #17232d;
+    --dash-muted: #71808b;
+    --dash-line: #e4e9ed;
+    --dash-navy: #10212b;
+    --dash-green: #b8e52b;
+    --dash-blue: #2865d7;
+    --dash-shadow: 0 18px 50px rgba(27, 43, 54, .08);
+}
+
+html, body { min-height: 100%; }
+body {
+    color: var(--dash-ink) !important;
+    background: var(--dash-bg) !important;
+    background-image: radial-gradient(circle at 92% 0%, rgba(40, 101, 215, .07), transparent 32rem) !important;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif !important;
+}
+
+header {
+    position: fixed !important;
+    inset: 0 auto 0 0 !important;
+    width: 248px !important;
+    height: 100vh !important;
+    padding: 28px 18px !important;
+    background: var(--dash-navy) !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+.header-container {
+    height: 100%;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+}
+
+.brand { padding: 0 8px 34px; gap: 11px; }
+.brand img { width: 48px; height: 48px; filter: none; }
+.brand-text strong { display: block; color: #fff !important; font: 800 1.25rem/.9 "Barlow Condensed", sans-serif !important; letter-spacing: .03em; text-transform: uppercase; }
+.brand-text span { display: block; margin-top: 7px; color: var(--dash-green) !important; font: 700 .68rem/1 Inter, sans-serif; letter-spacing: .16em; }
+
+.side-label { margin: 0 10px -24px; color: #7f929d; font: 800 .68rem/1 Inter, sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+nav { display: grid !important; gap: 5px !important; margin-top: 34px; }
+.nav-link { display: flex !important; align-items: center; gap: 12px; padding: 13px 12px !important; border-radius: 10px !important; color: #a7b5bd !important; font: 700 .9rem Inter, sans-serif !important; text-transform: none !important; }
+.nav-link:hover { color: var(--dash-green) !important; background: rgba(184, 229, 43, .1) !important; box-shadow: none !important; }
+.nav-link.active { color: var(--dash-navy) !important; background: var(--dash-green) !important; border: 0 !important; box-shadow: none !important; }
+
+main {
+    width: auto !important;
+    max-width: 1280px !important;
+    margin: 0 0 0 248px !important;
+    padding: 48px clamp(22px, 5vw, 70px) 54px !important;
+}
+
+.section-header {
+    max-width: 1280px;
+    margin: 0 auto 34px !important;
+    padding: 0 !important;
+    text-align: left !important;
+    animation: none !important;
+}
+.section-header::before { display: none !important; }
+.section-title { color: var(--dash-ink) !important; font: 800 clamp(3rem, 6vw, 5.8rem)/.86 "Barlow Condensed", sans-serif !important; letter-spacing: -.02em !important; }
+.section-subtitle { color: var(--dash-blue) !important; font: 800 .75rem/1 Inter, sans-serif !important; letter-spacing: .18em !important; }
+.data-updated { margin: 13px 0 0; color: var(--dash-muted); font-size: .72rem; font-weight: 700; letter-spacing: .04em; }
+.data-updated i { margin-right: 5px; color: var(--dash-green); }
+
+/* Apertura / Clausura */
+.tabs { width: fit-content; max-width: 100%; margin: 0 auto 22px !important; padding: 5px; border: 1px solid var(--dash-line); border-radius: 12px; background: var(--dash-surface); box-shadow: 0 4px 15px rgba(20,35,45,.04); }
+.tab-btn { border-radius: 8px !important; border: 0 !important; color: var(--dash-muted) !important; background: transparent !important; font: 800 .84rem Inter, sans-serif !important; }
+.tab-btn.active { color: #fff !important; background: var(--dash-navy) !important; box-shadow: 0 5px 13px rgba(16,33,43,.17) !important; }
+.container { animation: none !important; }
+.card { border: 1px solid var(--dash-line) !important; border-radius: 18px !important; background: var(--dash-surface) !important; box-shadow: var(--dash-shadow) !important; }
+.sub-tabs { border-color: var(--dash-line) !important; }
+.sub-tab-btn { color: var(--dash-muted) !important; font-family: Inter, sans-serif !important; }
+.sub-tab-btn.active { color: var(--dash-blue) !important; }
+.sub-tab-btn.active::after { background: var(--dash-blue) !important; box-shadow: none !important; }
+table th { color: var(--dash-muted) !important; background: #f8fafb !important; border-color: var(--dash-line) !important; }
+table td { color: var(--dash-ink); border-color: var(--dash-line) !important; }
+tbody tr:hover td { background: #f7fbe9 !important; }
+.team-img { border: 1px solid rgba(201,242,59,.24) !important; border-radius: 10px !important; background: linear-gradient(145deg, #22323d, #0a1117) !important; box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 5px 14px rgba(0,0,0,.22) !important; }
+.partido-card, .playoff-match-card, .goleador-item { border-color: var(--dash-line) !important; background: #fbfcfd !important; box-shadow: none !important; }
+.partido-card:hover, .playoff-match-card:hover, .goleador-item:hover { border-color: var(--dash-blue) !important; background: #f6f9ff !important; }
+.marcador span, .score-box { color: var(--dash-ink) !important; background: #eef2f5 !important; border-color: var(--dash-line) !important; }
+.score-box.global-score { color: var(--dash-blue) !important; background: #edf3ff !important; border-color: #a9c4fa !important; box-shadow: none !important; }
+.goles-badge { color: var(--dash-green) !important; background: rgba(201,242,59,.1) !important; border-color: rgba(201,242,59,.3) !important; }
+.bracket-stage-title { color: var(--dash-ink) !important; }
+.bracket-stage-title::before { background: var(--dash-blue) !important; box-shadow: none !important; }
+
+/* Noticias */
+.news-grid { max-width: 1280px; margin: auto; }
+.news-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 22px; max-width: 1280px; margin: 0 auto 18px; padding: 16px 18px; border: 1px solid var(--dash-line); border-radius: 14px; background: linear-gradient(110deg, #10212b, #172e3d); box-shadow: var(--dash-shadow); }
+.news-toolbar-copy { display: grid; gap: 4px; color: #fff; }
+.news-toolbar-kicker { color: var(--dash-green); font: 800 .64rem/1 Inter, sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+.news-toolbar-copy strong { font: 800 1.45rem/.95 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+.news-filters { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.news-filter { min-height: 34px; padding: 7px 12px; border: 1px solid rgba(255,255,255,.16); border-radius: 7px; color: #b9c8cf; background: rgba(255,255,255,.06); font: 800 .68rem/1 Inter, sans-serif; cursor: pointer; transition: .2s ease; }
+.news-filter:hover, .news-filter.active { color: var(--dash-navy); background: var(--dash-green); border-color: var(--dash-green); }
+.news-card { border: 1px solid var(--dash-line) !important; border-radius: 16px !important; background: var(--dash-surface) !important; box-shadow: var(--dash-shadow) !important; }
+.news-card-featured { grid-column: span 8; grid-row: span 2; }
+.news-card-featured .img-container, .news-card-featured .news-img { height: 360px; }
+.news-card-featured .news-title { font-size: 2.35rem !important; line-height: .9 !important; }
+.news-card:not(.news-card-featured) .news-body { padding: 18px !important; }
+.news-card:not(.news-card-featured) .news-title { font-size: 1.45rem !important; }
+.news-card.is-hidden { display: none !important; }
+.news-card:hover { border-color: var(--dash-blue) !important; box-shadow: 0 18px 42px rgba(40,101,215,.12) !important; }
+.news-body { padding: 22px !important; }
+.news-title { color: var(--dash-ink) !important; font-family: "Barlow Condensed", sans-serif !important; font-size: 1.65rem !important; line-height: .98 !important; }
+.news-desc { color: var(--dash-muted) !important; }
+.news-tag { color: var(--dash-blue) !important; background: #edf3ff !important; border-color: #cbdcff !important; }
+.read-more { color: var(--dash-blue) !important; font-family: Inter, sans-serif !important; }
+.sponsors-slideshow-section { border: 1px solid var(--dash-line) !important; border-radius: 16px !important; background: var(--dash-surface) !important; box-shadow: var(--dash-shadow) !important; }
+.sponsors-carousel-title { color: var(--dash-blue) !important; }
+
+footer { margin-left: 248px; background: var(--dash-navy) !important; border: 0 !important; }
+footer::before { color: rgba(184,229,43,.15) !important; }
+.footer-text { color: #a7b5bd !important; }
+.social-link { border-color: rgba(255,255,255,.15) !important; }
+.social-link:hover { background: var(--dash-green) !important; color: var(--dash-navy) !important; }
+
+@media (max-width: 980px) {
+    header { position: sticky !important; inset: auto !important; width: 100% !important; height: auto !important; padding: 14px 18px !important; }
+    .header-container { height: auto; flex-direction: row !important; align-items: center !important; }
+    .brand { padding: 0 !important; }
+    nav { display: flex !important; flex: 1; margin: 0 0 0 16px; overflow-x: auto; justify-content: flex-end; }
+    .nav-link { flex: 0 0 auto; }
+    main { margin: 0 !important; padding: 34px 22px 48px !important; }
+    footer { margin-left: 0; }
+    .news-toolbar { align-items: flex-start; flex-direction: column; gap: 13px; }
+    .news-filters { justify-content: flex-start; }
+    .news-card-featured { grid-column: auto; grid-row: auto; }
+    .news-card-featured .img-container, .news-card-featured .news-img { height: 250px; }
+}
+
+@media (max-width: 620px) {
+    .header-container { display: block !important; }
+    .news-toolbar { margin-bottom: 13px; padding: 13px; border-radius: 12px; }
+    .news-toolbar-copy strong { font-size: 1.2rem; }
+    .news-filters { width: 100%; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 2px; scrollbar-width: none; }
+    .news-filters::-webkit-scrollbar { display: none; }
+    .news-filter { flex: 0 0 auto; font-size: .62rem; }
+    .news-card-featured .img-container, .news-card-featured .news-img { height: 190px; }
+    .news-card-featured .news-title { font-size: 1.75rem !important; }
+    .brand { justify-content: center; }
+    nav { justify-content: center; margin: 13px 0 0; }
+    .nav-link { padding: 9px 11px !important; font-size: .76rem !important; }
+    main { padding: 28px 14px 38px !important; }
+    .section-title { font-size: 3.5rem !important; }
+    .tabs { width: 100%; justify-content: stretch; }
+    .tab-btn { flex: 1 1 42%; }
+    .card { padding: 18px 12px !important; }
+    footer { padding: 38px 18px !important; }
+}
+
+/* Tema nocturno compartido con el dashboard principal */
+:root {
+    --dash-bg: #080d12;
+    --dash-surface: #111a22;
+    --dash-ink: #edf4f2;
+    --dash-muted: #91a2ac;
+    --dash-line: #293943;
+    --dash-navy: #071017;
+    --dash-green: #c9f23b;
+    --dash-blue: #5d96ff;
+    --dash-shadow: 0 22px 60px rgba(0, 0, 0, .28);
+}
+
+body {
+    background: radial-gradient(circle at 80% -10%, rgba(49, 102, 172, .18), transparent 34rem), var(--dash-bg) !important;
+}
+
+header { border-right: 1px solid rgba(255,255,255,.06) !important; }
+
+main > .section-header,
+.card,
+.news-card,
+.sponsors-slideshow-section {
+    color: var(--dash-ink) !important;
+}
+
+.card,
+.news-card,
+.sponsors-slideshow-section {
+    background: linear-gradient(145deg, #15222b, #0f171e) !important;
+    border-color: var(--dash-line) !important;
+    box-shadow: var(--dash-shadow) !important;
+}
+
+.section-title,
+.news-title,
+.modal-title,
+.bracket-stage-title { color: var(--dash-ink) !important; }
+
+.section-subtitle,
+.sponsors-carousel-title { color: var(--dash-blue) !important; }
+
+.sub-tabs { border-color: var(--dash-line) !important; }
+.sub-tab-btn { color: var(--dash-muted) !important; }
+.sub-tab-btn.active { color: var(--dash-blue) !important; }
+.sub-tab-btn.active::after { background: var(--dash-blue) !important; }
+.clausura-section-label { display: flex; align-items: center; gap: 11px; margin: 0 0 16px; padding: 12px 14px; border: 1px solid var(--dash-line); border-radius: 11px; background: rgba(93,150,255,.06); }
+.clausura-section-label > i { color: var(--dash-green); font-size: 1rem; }
+.clausura-section-label strong { display: block; color: var(--dash-ink); font: 800 1.15rem/.95 "Barlow Condensed", sans-serif; text-transform: uppercase; }
+.clausura-section-label span { display: block; margin-top: 4px; color: var(--dash-muted); font-size: .7rem; }
+.fixture-status { margin: 0 0 12px; padding: 12px 14px; border-left: 3px solid var(--dash-green); border-radius: 0 10px 10px 0; color: var(--dash-ink); background: rgba(201,242,59,.08); font: 800 1.05rem/.95 "Barlow Condensed", sans-serif; letter-spacing: .03em; text-transform: uppercase; }
+.fixture-status small { display: block; margin-top: 4px; color: var(--dash-muted); font: 600 .68rem/1 Inter, sans-serif; letter-spacing: 0; text-transform: none; }
+.match-location { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--dash-line); color: var(--dash-muted); font-size: .7rem; }
+.match-location span i { margin-right: 4px; color: var(--dash-green); }
+.match-location small { flex-basis: 100%; text-align: center; font-size: .66rem; }
+
+table th { color: var(--dash-muted) !important; background: #17232c !important; border-color: var(--dash-line) !important; }
+table td { color: var(--dash-ink) !important; border-color: var(--dash-line) !important; }
+tbody tr:hover td { background: rgba(201,242,59,.06) !important; }
+.partido-card, .playoff-match-card, .goleador-item { background: #111a22 !important; border-color: var(--dash-line) !important; }
+.partido-card:hover, .playoff-match-card:hover, .goleador-item:hover { background: #17232c !important; border-color: rgba(93,150,255,.7) !important; }
+.marcador span, .score-box { color: var(--dash-ink) !important; background: #1b2a34 !important; border-color: var(--dash-line) !important; }
+.score-box.global-score { color: var(--dash-blue) !important; background: #172c4a !important; border-color: var(--dash-blue) !important; box-shadow: none !important; }
+.goles-badge { color: var(--dash-green) !important; background: rgba(201,242,59,.1) !important; border-color: rgba(201,242,59,.3) !important; }
+.news-desc, .news-date, .footer-text { color: var(--dash-muted) !important; }
+.news-tag { color: var(--dash-blue) !important; background: #172c4a !important; border-color: #315b96 !important; }
+.read-more { color: var(--dash-blue) !important; }
+.modal-content { color: var(--dash-ink) !important; background: #0f171e !important; border-color: var(--dash-line) !important; }
+.modal-text { color: #c8d2d6 !important; }
+.equipo-lado img, .playoff-team-meta img, .goleador-foto { border: 1px solid rgba(201,242,59,.24) !important; border-radius: 10px !important; padding: 4px !important; background: linear-gradient(145deg, #22323d, #0a1117) !important; box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 5px 14px rgba(0,0,0,.22) !important; }
+footer { background: #050b10 !important; }
+
+/* Tarjetas de resultados: tres columnas estables y goleadores legibles */
+.partido-card .equipos-container {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: clamp(12px, 3vw, 34px);
+    align-items: center;
+}
+.partido-card .equipo-lado,
+.partido-card .equipo-lado.visitante {
+    width: auto;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    text-align: center;
+}
+.partido-card .equipo-lado span {
+    max-width: 190px;
+    color: var(--dash-ink);
+    font-size: clamp(.78rem, 1.4vw, 1rem);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+}
+.partido-card .equipo-lado img { width: 58px; height: 58px; }
+.partido-card .marcador {
+    width: auto;
+    min-width: 104px;
+    gap: 7px;
+    font-size: 1.55rem;
+}
+.partido-card .marcador span { min-width: 39px; padding: 8px 9px; text-align: center; }
+.partido-card .partido-score-label { white-space: nowrap; }
+.match-scorers { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.scorer-name { max-width: 100%; overflow-wrap: anywhere; }
+
+@media (max-width: 620px) {
+    header { padding: 11px 12px !important; }
+    .brand { gap: 9px; }
+    .brand img { width: 40px; height: 40px; }
+    .brand-text strong { font-size: 1.08rem !important; }
+    .brand-text span { margin-top: 4px; font-size: .56rem; }
+    .side-label { display: none; }
+    nav { margin-top: 11px !important; justify-content: flex-start !important; gap: 4px !important; padding-bottom: 2px; }
+    .nav-link { min-width: 42px; min-height: 39px; justify-content: center; padding: 8px 10px !important; border-radius: 8px !important; }
+    .nav-link i { width: auto; font-size: .88rem; }
+
+    main { padding: 25px 12px 34px !important; }
+    .section-header { margin-bottom: 21px !important; }
+    .section-title { font-size: clamp(2.8rem, 15vw, 4.5rem) !important; line-height: .86 !important; }
+    .section-subtitle { margin-top: 9px; font-size: .64rem !important; letter-spacing: .13em !important; }
+    .data-updated { margin-top: 10px; font-size: .64rem; }
+
+    .tabs { width: 100%; gap: 3px; margin-bottom: 15px !important; padding: 4px; }
+    .tab-btn { min-height: 42px; padding: 9px 7px !important; font-size: .7rem !important; }
+    .card { padding: 15px 10px !important; border-radius: 14px !important; }
+    .sub-tabs { gap: 5px; margin-bottom: 18px; padding-bottom: 0; }
+    .sub-tab-btn { flex: 1 1 42%; min-height: 40px; padding: 9px 5px; border-radius: 8px; font-size: .68rem; }
+    .clausura-section-label { margin-bottom: 12px; padding: 10px 11px; }
+    .clausura-section-label strong { font-size: 1rem; }
+    .fixture-status { padding: 10px 11px; font-size: .95rem; }
+    .fixture small { font-size: .6rem; }
+    .match-location { gap: 6px; font-size: .62rem; }
+    .match-location small { font-size: .59rem; }
+
+    .table-responsive { margin-inline: -2px; }
+    table th { padding: 10px 5px !important; font-size: .59rem !important; }
+    table td { padding: 11px 5px !important; font-size: .76rem !important; }
+    .team-cell { gap: 6px; }
+    .team-img { width: 36px; height: 36px; padding: 5px; border-radius: 9px !important; }
+    .team-cell span { max-width: 112px; font-size: .7rem; }
+    .toggle-cols-btn { padding: 8px 9px !important; font-size: .65rem !important; }
+
+    .fechas-selector { gap: 6px; padding-bottom: 9px; margin-bottom: 12px; }
+    .fecha-btn { padding: 9px 12px; font-size: .68rem; }
+    .partido-card { padding: 14px 8px !important; margin-bottom: 9px; border-radius: 12px; }
+    .partido-card .equipos-container { grid-template-columns: minmax(0, 1fr) 78px minmax(0, 1fr); gap: 6px; }
+    .partido-card .equipo-lado img { width: 48px; height: 48px; padding: 5px !important; border-radius: 10px !important; }
+    .partido-card .equipo-lado span { max-width: 92px; font-size: .68rem; line-height: 1.15; }
+    .partido-card .marcador { min-width: 78px; gap: 3px; font-size: 1.05rem; }
+    .partido-card .marcador span { min-width: 29px; padding: 6px 4px; }
+    .partido-card .partido-score-label { font-size: .55rem; letter-spacing: .06em; }
+    .partido-card .match-scorers { gap: 6px; margin-top: 13px; padding-top: 12px; }
+    .partido-card .scorer-team { font-size: .58rem; line-height: 1.1; }
+    .partido-card .scorer-list { gap: 4px; }
+    .partido-card .scorer-name { padding: 4px 5px; font-size: .61rem; line-height: 1.1; }
+    .libre-tag { margin-top: 12px; padding: 9px; font-size: .72rem; }
+
+    .goleador-item { padding: 10px 8px; gap: 7px; border-radius: 11px; }
+    .goleador-info { gap: 8px; min-width: 0; }
+    .goleador-foto { width: 42px; height: 42px; padding: 5px !important; border-radius: 10px !important; }
+    .goleador-nombre { overflow: hidden; font-size: .76rem; text-overflow: ellipsis; white-space: nowrap; }
+    .goleador-equipo { font-size: .64rem; }
+    .goles-badge { min-width: 34px; padding: 5px 6px; font-size: .9rem; }
+
+    .playoff-grid { grid-template-columns: 1fr; gap: 10px; }
+    .playoff-match-card { padding: 14px 10px; border-radius: 12px; gap: 10px; }
+    .playoff-match-info { font-size: .64rem; }
+    .playoff-team-meta { gap: 8px; }
+    .playoff-team-meta img { width: 28px; height: 28px; }
+    .playoff-team-meta span { font-size: .76rem; }
+    .playoff-scores-container { gap: 4px; }
+    .score-box { width: 27px; height: 27px; font-size: .75rem; }
+
+    .news-grid { grid-template-columns: 1fr !important; gap: 12px; }
+    .news-card, .news-card:first-child { grid-column: auto !important; border-radius: 13px; }
+    .news-card:first-child .img-container, .news-card:first-child .news-img { height: 190px; }
+    .img-container, .news-img { height: 170px; }
+    .news-body { padding: 16px !important; }
+    .news-meta { gap: 7px; margin-bottom: 10px; }
+    .news-tag { padding: 5px 8px; font-size: .61rem; }
+    .news-date { font-size: .65rem; }
+    .news-title, .news-card:first-child .news-title { font-size: 1.35rem !important; line-height: .98 !important; }
+    .news-desc { font-size: .78rem; line-height: 1.45; }
+
+    .sponsors-slideshow-section { margin-bottom: 24px; padding: 15px 10px; border-radius: 13px; }
+    .sponsors-carousel-title { margin-bottom: 12px; font-size: .64rem; }
+    .sponsors-slideshow-container { height: 86px; }
+    .sponsor-slide img { max-height: 72px; }
+
+    footer { padding: 32px 14px !important; }
+    footer::before { margin-bottom: 20px; font-size: 2.6rem; }
+    .social-links { gap: 12px; margin-bottom: 15px; }
+    .social-link { width: 40px; height: 40px; }
+    .footer-text { font-size: .7rem; }
+}

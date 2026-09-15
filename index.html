@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Centro de competencia de la Liga Niños Unidos Del Sur: posiciones y goleadores.">
+    <meta name="theme-color" content="#10212b">
+    <title>Centro de Competencia | Liga Niños Unidos Del Sur</title>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/mkqpYh73/Logo-Liga.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <a class="brand" href="index.html" aria-label="Liga Niños Unidos Del Sur, inicio">
+                <img src="https://i.postimg.cc/mkqpYh73/Logo-Liga.png" alt="Escudo de la Liga Niños Unidos Del Sur">
+                <span class="brand-copy"><strong>Liga del Sur</strong><span>Sitio oficial</span></span>
+            </a>
+            <p class="side-label">Centro de competencia</p>
+            <nav class="nav-list" aria-label="Navegación principal">
+                <a class="nav-link active" href="index.html"><i class="fa-solid fa-house"></i><span>Resumen</span></a>
+                <a class="nav-link" href="noticias.html"><i class="fa-regular fa-newspaper"></i><span>Noticias</span></a>
+                <a class="nav-link" href="apertura.html"><i class="fa-solid fa-trophy"></i><span>Torneo Apertura</span></a>
+                <a class="nav-link" href="clausura.html"><i class="fa-solid fa-calendar-days"></i><span>Torneo Clausura</span></a>
+            </nav>
+            <div class="sidebar-note"><small>Temporada 2026</small><p>La competencia<br>está en marcha.</p></div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div><p class="eyebrow">Liga Niños Unidos Del Sur / 2026</p><h1 class="page-title">Centro de <span>competencia</span></h1></div>
+                <div class="updated"><i class="pulse"></i> Última actualización: 13/09/2026</div>
+            </header>
+
+            <section class="welcome-banner" aria-labelledby="welcome-title">
+                <div class="welcome-art" aria-hidden="true"><span class="art-score">01</span><span class="art-ball"><i class="fa-solid fa-futbol"></i></span><span class="art-line art-line-one"></span><span class="art-line art-line-two"></span></div>
+                <div class="welcome-copy"><p class="welcome-kicker">Bienvenidos al sitio oficial</p><h2 id="welcome-title">La pasión de la liga, en un solo lugar</h2><p>Posiciones, goleadores, noticias y toda la competencia.</p><a class="welcome-link" href="clausura.html">Seguir el Clausura <i class="fa-solid fa-arrow-right"></i></a></div>
+            </section>
+
+            <div class="dashboard-grid">
+                <section class="panel standings-panel" id="posiciones" aria-labelledby="table-caption">
+                    <div class="panel-head"><div><h2 class="panel-title">Posiciones</h2><p class="panel-subtitle" id="table-caption">Primera · Top 3</p></div><span class="badge"><i class="fa-solid fa-shield-halved"></i> Oficial</span></div>
+                    <div class="table-wrap"><table class="standings"><thead><tr><th scope="col">#</th><th scope="col">Equipo</th><th scope="col">PJ</th><th scope="col">PTS</th></tr></thead><tbody id="standings-body"></tbody></table></div>
+                </section>
+
+                <section class="panel fixture-panel" aria-labelledby="fixture-title">
+                    <div class="panel-head"><div><h2 class="panel-title" id="fixture-title">Próxima fecha</h2><p class="panel-subtitle" id="next-fixture-label">Clausura</p></div><span class="badge"><i class="fa-solid fa-calendar-days"></i> Próxima</span></div>
+                    <div class="fixture-list" id="next-fixture-list"></div>
+                    <a class="show-more" href="clausura.html"><i class="fa-solid fa-arrow-right"></i> Ver Clausura completo</a>
+                </section>
+            </div>
+
+            <section class="shortcut-section" aria-labelledby="shortcuts-title">
+                <div class="shortcut-heading">
+                    <div><p class="eyebrow">Explorá la liga</p><h2 id="shortcuts-title">Accesos directos</h2></div>
+                    <span>Todo el contenido, en un solo lugar</span>
+                </div>
+                <div class="shortcut-grid">
+                    <a class="shortcut-card shortcut-news" href="noticias.html">
+                        <span class="shortcut-icon"><i class="fa-regular fa-newspaper"></i></span>
+                        <span><strong>Noticias</strong><small>Crónicas, comunicados y tribunal</small></span>
+                        <i class="fa-solid fa-arrow-up-right-from-square shortcut-arrow"></i>
+                    </a>
+                    <a class="shortcut-card shortcut-opening" href="apertura.html">
+                        <span class="shortcut-icon"><i class="fa-solid fa-trophy"></i></span>
+                        <span><strong>Torneo Apertura</strong><small>Archivo completo, playoffs y goleadores</small></span>
+                        <i class="fa-solid fa-arrow-up-right-from-square shortcut-arrow"></i>
+                    </a>
+                    <a class="shortcut-card shortcut-closing" href="clausura.html">
+                        <span class="shortcut-icon"><i class="fa-solid fa-calendar-days"></i></span>
+                        <span><strong>Torneo Clausura</strong><small>Fixture, tablas y ranking completo</small></span>
+                        <i class="fa-solid fa-arrow-up-right-from-square shortcut-arrow"></i>
+                    </a>
+                </div>
+            </section>
+
+            <section class="sponsors" aria-labelledby="sponsors-title">
+                <div class="sponsors-heading"><p class="eyebrow">Auspiciantes oficiales</p><h2 id="sponsors-title">Los que acompañan a la liga</h2></div>
+                <div class="sponsor-carousel" data-sponsor-carousel aria-label="Publicidad de auspiciantes">
+                    <button class="sponsor-control sponsor-prev" type="button" aria-label="Auspiciantes anteriores"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="sponsor-track">
+                        <a class="sponsor sponsor-slide active" href="https://burgerpiola.netlify.app/" target="_blank" rel="noopener noreferrer"><img src="https://i.postimg.cc/tCC5G4M0/Burguer-Piola.png" alt="Burger Piola"></a>
+                        <a class="sponsor sponsor-slide" href="https://www.instagram.com/cadeteria_leon" target="_blank" rel="noopener noreferrer"><img src="https://i.postimg.cc/44w6PTNp/Cadeteria-el-Leon.png" alt="Cadetería El León"></a>
+                        <div class="sponsor sponsor-slide"><img src="https://i.postimg.cc/TwFdrPh5/San-Jose-Carnes.png" alt="Carnicería San José"></div>
+                    </div>
+                    <button class="sponsor-control sponsor-next" type="button" aria-label="Siguientes auspiciantes"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <div class="sponsor-dots" aria-label="Seleccionar auspiciante"></div>
+            </section>
+
+            <footer class="footer">Liga Niños Unidos Del Sur · Información deportiva oficial · Temporada 2026</footer>
+        </main>
+    </div>
+    <script src="teams-data.js"></script>
+    <script src="clausura-data.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
