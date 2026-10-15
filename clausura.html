@@ -1022,6 +1022,7 @@
         }
 
         const standingsWheel = { primera: 'ida', reserva: 'ida' };
+        const finalistOverrides = { primera: { ida: 'Confraternidad' } };
 
         function calculateWheelStandings(categoria, wheel) {
             const source = categoria === 'primera' ? datosPrimera : datosReserva;
@@ -1069,16 +1070,17 @@
         function updateFinalists(categoria) {
             const ida = calculateWheelStandings(categoria, 'ida');
             const vuelta = calculateWheelStandings(categoria, 'vuelta');
-            const slot = (label, result) => {
-                const leader = result.standings[0];
-                const status = result.complete ? 'Clasificado a la final' : result.hasPlayed ? `Líder provisorio: ${leader.nombre}` : 'Rueda aún no disputada';
-                const teamName = result.complete ? leader.nombre : 'Pendiente';
-                return `<div class="finalist-slot ${result.complete ? 'is-qualified' : ''}"><span>${label}</span><strong>${teamName}</strong><small>${status}</small></div>`;
+            const finalistName = (wheel, result) => finalistOverrides[categoria]?.[wheel] || result.standings[0].nombre;
+            const slot = (label, wheel, result) => {
+                const teamName = finalistName(wheel, result);
+                const status = result.complete ? 'Clasificado a la final' : result.hasPlayed ? `Líder provisorio: ${teamName}` : 'Rueda aún no disputada';
+                const displayName = result.complete ? teamName : 'Pendiente';
+                return `<div class="finalist-slot ${result.complete ? 'is-qualified' : ''}"><span>${label}</span><strong>${displayName}</strong><small>${status}</small></div>`;
             };
             const finalNote = ida.complete && vuelta.complete
-                ? `<div class="final-match-note"><i class="fa-solid fa-trophy"></i> FINAL: ${ida.standings[0].nombre} vs ${vuelta.standings[0].nombre}</div>`
+                ? `<div class="final-match-note"><i class="fa-solid fa-trophy"></i> FINAL: ${finalistName('ida', ida)} vs ${finalistName('vuelta', vuelta)}</div>`
                 : '<div class="final-match-note"><i class="fa-solid fa-circle-info"></i> La final se define entre los punteros de ambas ruedas, por categoría.</div>';
-            document.getElementById(`finalistas-${categoria}`).innerHTML = slot('Puntero de Ida · Fechas 1–5', ida) + slot('Puntero de Vuelta · Fechas 6–10', vuelta) + finalNote;
+            document.getElementById(`finalistas-${categoria}`).innerHTML = slot('Puntero de Ida · Fechas 1–5', 'ida', ida) + slot('Puntero de Vuelta · Fechas 6–10', 'vuelta', vuelta) + finalNote;
         }
 
         function renderFechasSelector(categoria, dataResultados) {

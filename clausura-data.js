@@ -51,9 +51,9 @@ const resultadosHistoricos = {
             { local: "Juventud Unida", gl: 1, visitante: "Muni San Basilio", gv: 1, dia: "27/09/2026", cancha: "Predio Ramón J. Carcano", localidad: "General Levalle, Provincia de Córdoba", goleadoresLocal: ["Gabriel Toledo"], goleadoresVisitante: ["Canciano Francisco"] }
         ]},
         { id: "f7", nombre: "FECHA 7", partidos: [
-            { local: "Juventud Unida", gl: "-", visitante: "Potrero FC", gv: "-", dia: "11/10/2026", cancha: "Predio Ramón J. Carcano", localidad: "General Levalle, Provincia de Córdoba" },
-            { local: "Muni San Basilio", gl: "-", visitante: "Carlos A. Mayol", gv: "-", dia: "11/10/2026", cancha: "San Basilio", localidad: "San Basilio, Provincia de Córdoba" },
-            { local: "Confraternidad", gl: "-", visitante: "Real Imperio FC", gv: "-", dia: "11/10/2026", cancha: "El Bosque", localidad: "Monte De Los Gauchos, Provincia de Córdoba" }
+            { local: "Juventud Unida", gl: 2, visitante: "Potrero FC", gv: 0, dia: "11/10/2026", cancha: "Predio Ramón J. Carcano", localidad: "General Levalle, Provincia de Córdoba", goleadoresLocal: [], goleadoresVisitante: [] },
+            { local: "Muni San Basilio", gl: 1, visitante: "Carlos A. Mayol", gv: 2, dia: "11/10/2026", cancha: "San Basilio", localidad: "San Basilio, Provincia de Córdoba", goleadoresLocal: ["Ruarte Gustavo"], goleadoresVisitante: ["Lima", "Quiroga"] },
+            { local: "Confraternidad", gl: 1, visitante: "Real Imperio FC", gv: 5, dia: "11/10/2026", cancha: "El Bosque", localidad: "Monte De Los Gauchos, Provincia de Córdoba", goleadoresLocal: ["Eliseo Giménez"], goleadoresVisitante: ["Carlos Azcurra", "Agustín Varela", "David Savorgonano", "Alejo Villalobo", "Gabriel Arce"] }
         ]},
         { id: "f8", nombre: "FECHA 8", partidos: [
             { local: "Real Imperio FC", gl: "-", visitante: "Juventud Unida", gv: "-", dia: "18/10/2026", cancha: "Pucara IV", localidad: "Río Cuarto, Provincia de Córdoba" },
@@ -98,14 +98,14 @@ const resultadosHistoricos = {
             { local: "Muni San Basilio", gl: 1, visitante: "Potrero FC", gv: 1, dia: "20/09/2026", cancha: "San Basilio", localidad: "San Basilio, Provincia de Córdoba", goleadoresLocal: ["Ayala Alexis"], goleadoresVisitante: ["Farias Valentin"] }
         ]},
         { id: "f6", nombre: "FECHA 6", partidos: [
-            { local: "Real Imperio FC", gl: 0, visitante: "Potrero FC", gv: 0, dia: "27/09/2026", cancha: "Asociación Atlética Banda Norte", localidad: "Río Cuarto, Provincia de Córdoba", goleadoresLocal: [], goleadoresVisitante: [] },
+            { local: "Real Imperio FC", gl: 2, visitante: "Potrero FC", gv: 0, dia: "27/09/2026", cancha: "Asociación Atlética Banda Norte", localidad: "Río Cuarto, Provincia de Córdoba", goleadoresLocal: [], goleadoresVisitante: [] },
             { local: "Carlos A. Mayol", gl: 3, visitante: "Confraternidad", gv: 2, dia: "27/09/2026", cancha: "El Mayol", localidad: "Huanchilla, Provincia de Córdoba", goleadoresLocal: ["Trigo Joaquin (2)", "Piquer Pablo"], goleadoresVisitante: ["Leguizamón Omar", "Suárez Axel"] },
             { local: "Juventud Unida", gl: 1, visitante: "Muni San Basilio", gv: 2, dia: "27/09/2026", cancha: "Predio Ramón J. Carcano", localidad: "General Levalle, Provincia de Córdoba", goleadoresLocal: ["Gabriel Toledo"], goleadoresVisitante: ["Arias Mayco", "Pissinis Matías"] }
         ]},
         { id: "f7", nombre: "FECHA 7", partidos: [
-            { local: "Juventud Unida", gl: "-", visitante: "Potrero FC", gv: "-", dia: "11/10/2026", cancha: "Predio Ramón J. Carcano", localidad: "General Levalle, Provincia de Córdoba" },
-            { local: "Muni San Basilio", gl: "-", visitante: "Carlos A. Mayol", gv: "-", dia: "11/10/2026", cancha: "San Basilio", localidad: "San Basilio, Provincia de Córdoba" },
-            { local: "Confraternidad", gl: "-", visitante: "Real Imperio FC", gv: "-", dia: "11/10/2026", cancha: "El Bosque", localidad: "Monte De Los Gauchos, Provincia de Córdoba" }
+            { local: "Juventud Unida", gl: 2, visitante: "Potrero FC", gv: 0, dia: "11/10/2026", cancha: "Predio Ramón J. Carcano", localidad: "General Levalle, Provincia de Córdoba", goleadoresLocal: [], goleadoresVisitante: [] },
+            { local: "Muni San Basilio", gl: 3, visitante: "Carlos A. Mayol", gv: 2, dia: "11/10/2026", cancha: "San Basilio", localidad: "San Basilio, Provincia de Córdoba", goleadoresLocal: ["Arias Mayco", "Pissini", "Cataldo"], goleadoresVisitante: ["Fernández", "Gonzáles"] },
+            { local: "Confraternidad", gl: 2, visitante: "Real Imperio FC", gv: 1, dia: "11/10/2026", cancha: "El Bosque", localidad: "Monte De Los Gauchos, Provincia de Córdoba", goleadoresLocal: ["Pedernera Thiago (2)"], goleadoresVisitante: ["Quintero Maximo"] }
         ]},
         { id: "f8", nombre: "FECHA 8", partidos: [
             { local: "Real Imperio FC", gl: "-", visitante: "Juventud Unida", gv: "-", dia: "18/10/2026", cancha: "Pucara IV", localidad: "Río Cuarto, Provincia de Córdoba" },
@@ -147,8 +147,8 @@ const goleadoresDataPrimera = [
     { nombre: "Axel Quevedo", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
     { nombre: "Daniel Cardetti", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
     { nombre: "Pablo Azcurra", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
-    { nombre: "Jeremías Quiroga", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
-    { nombre: "Silvio Lima", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
+    { nombre: "Jeremías Quiroga", equipo: "Carlos A. Mayol", goles: 2, escudo: getFoto("Carlos A. Mayol") },
+    { nombre: "Silvio Lima", equipo: "Carlos A. Mayol", goles: 2, escudo: getFoto("Carlos A. Mayol") },
     { nombre: "Alexis Cejas", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
     { nombre: "Allen Yrusta", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
     { nombre: "Facundo Torres", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
@@ -164,10 +164,16 @@ const goleadoresDataPrimera = [
     { nombre: "Torres Juan", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
     { nombre: "Barraguirre Álvaro", equipo: "Juventud Unida", goles: 1, escudo: getFoto("Juventud Unida") },
     { nombre: "Sibona Valentin", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
-    { nombre: "Azcurra Carlos", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
+    { nombre: "Azcurra Carlos", equipo: "Real Imperio FC", goles: 2, escudo: getFoto("Real Imperio FC") },
     { nombre: "González Michael", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
     { nombre: "Martinez Nazareno", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
-    { nombre: "Juarez Agustin", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") }
+    { nombre: "Juarez Agustin", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
+    { nombre: "Ruarte Gustavo", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
+    { nombre: "Eliseo Giménez", equipo: "Confraternidad", goles: 1, escudo: getFoto("Confraternidad") },
+    { nombre: "Agustín Varela", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
+    { nombre: "David Savorgonano", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
+    { nombre: "Alejo Villalobo", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
+    { nombre: "Gabriel Arce", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") }
 ];
 
 const vallaInvictaPrimera = [
@@ -186,7 +192,7 @@ const vallaInvictaReserva = [
 const goleadoresDataReserva = [
     { nombre: "Joaquín Trigo", equipo: "Carlos A. Mayol", goles: 8, escudo: getFoto("Carlos A. Mayol") },
     { nombre: "Fran Torres", equipo: "Real Imperio FC", goles: 5, escudo: getFoto("Real Imperio FC") },
-    { nombre: "Mayco Arias", equipo: "Muni San Basilio", goles: 6, escudo: getFoto("Muni San Basilio") },
+    { nombre: "Mayco Arias", equipo: "Muni San Basilio", goles: 7, escudo: getFoto("Muni San Basilio") },
     { nombre: "Nicolino Ávila", equipo: "Juventud Unida", goles: 2, escudo: getFoto("Juventud Unida") },
     { nombre: "Marcos Torres", equipo: "Juventud Unida", goles: 2, escudo: getFoto("Juventud Unida") },
     { nombre: "Genaro Giles", equipo: "Confraternidad", goles: 1, escudo: getFoto("Confraternidad") },
@@ -221,6 +227,12 @@ const goleadoresDataReserva = [
     { nombre: "Lautaro Gabosi", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
     { nombre: "Nahuel Arias", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
     { nombre: "Gabriel Oviedo", equipo: "Potrero FC", goles: 1, escudo: getFoto("Potrero FC") },
-    { nombre: "Benjamín Chávez", equipo: "Confraternidad", goles: 1, escudo: getFoto("Confraternidad") }
+    { nombre: "Benjamín Chávez", equipo: "Confraternidad", goles: 1, escudo: getFoto("Confraternidad") },
+    { nombre: "Pedernera Thiago", equipo: "Confraternidad", goles: 2, escudo: getFoto("Confraternidad") },
+    { nombre: "Quintero Maximo", equipo: "Real Imperio FC", goles: 1, escudo: getFoto("Real Imperio FC") },
+    { nombre: "Pissini", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
+    { nombre: "Cataldo", equipo: "Muni San Basilio", goles: 1, escudo: getFoto("Muni San Basilio") },
+    { nombre: "Fernández", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") },
+    { nombre: "Gonzáles", equipo: "Carlos A. Mayol", goles: 1, escudo: getFoto("Carlos A. Mayol") }
 ];
 
